@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 
 function LiftButtons({ style, setStyle, setDoor }) {
+  let currentFloor = 1;
+
   function moveElevator(floor) {
     // Assuming each floor has a height of 100px
-    const targetPosition = (floor + 1) * 130;
+    const targetPosition = floor * 140;
     setStyle({
       transform: `translateY(${targetPosition}px)`,
       transitionDuration: "1s",
@@ -37,24 +39,10 @@ function LiftButtons({ style, setStyle, setDoor }) {
       <div class="floor">
         <button
           onClick={() => {
-            moveElevator(0);
+            moveElevator(4);
           }}
         >
-          Floor 4
-        </button>
-        <button
-          onClick={() => {
-            moveElevator(1);
-          }}
-        >
-          Floor 3
-        </button>
-        <button
-          onClick={() => {
-            moveElevator(2);
-          }}
-        >
-          Floor 2
+          Floor G
         </button>
         <button
           onClick={() => {
@@ -65,10 +53,24 @@ function LiftButtons({ style, setStyle, setDoor }) {
         </button>
         <button
           onClick={() => {
-            moveElevator(4);
+            moveElevator(2);
           }}
         >
-          Floor G
+          Floor 2
+        </button>
+        <button
+          onClick={() => {
+            moveElevator(1);
+          }}
+        >
+          Floor 3
+        </button>
+        <button
+          onClick={() => {
+            moveElevator(0);
+          }}
+        >
+          Floor 4
         </button>
         <button onClick={opendoor}>open</button>
         <button onClick={closedoor}>close</button>

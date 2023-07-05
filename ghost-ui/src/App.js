@@ -3,7 +3,6 @@ import "./App.css";
 import ControlPanel from "./components/ControlPanel";
 import Floors from "./components/Floors";
 import LiftShaft from "./components/LiftShaft";
-import { useState } from "react";
 function App() {
   let no_of_floors = 5;
   let no_of_spaces = 6;

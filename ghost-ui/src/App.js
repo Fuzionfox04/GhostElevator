@@ -52,7 +52,7 @@ function App() {
       <div className="main-grid-item">
         <ControlPanel style={style} setStyle={setStyle} setDoor={setDoor} door={door}
 peopleCoordinates={peopleCoordinates}
-          updatePeopleCoordinates={updatePeopleCoordinates}
+          updatePeopleCoordinates={updatePeopleCoordinates} no_of_floors={no_of_floors}
 />      </div>
     </div>
   );

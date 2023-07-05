@@ -79,6 +79,7 @@ function App() {
           door={door}
           peopleCoordinates={peopleCoordinates}
           updatePeopleCoordinates={updatePeopleCoordinates}
+          no_of_floors={no_of_floors}
           currentFloor={currentFloor}
           setCurrentFloor={setCurrentFloor}
         />{" "}

@@ -6,10 +6,14 @@ function LiftButtons({
   setDoor,
   currentFloor,
   setCurrentFloor,
+  no_of_floors,
 }) {
+  console.log(no_of_floors);
+  let currentFloor = 1;
+
   function moveElevator(floor) {
     // Assuming each floor has a height of 100px
-    const targetPosition = floor * 140;
+    const targetPosition = (no_of_floors - floor - 1) * 140;
     setStyle({
       transform: `translateY(${targetPosition}px)`,
       transitionDuration: "1s",
@@ -43,14 +47,14 @@ function LiftButtons({
       <div class="floor">
         <button
           onClick={() => {
-            moveElevator(0);
+            moveElevator(4);
           }}
         >
           Floor G
         </button>
         <button
           onClick={() => {
-            moveElevator(1);
+            moveElevator(3);
           }}
         >
           Floor 1
@@ -64,14 +68,14 @@ function LiftButtons({
         </button>
         <button
           onClick={() => {
-            moveElevator(3);
+            moveElevator(1);
           }}
         >
           Floor 3
         </button>
         <button
           onClick={() => {
-            moveElevator(4);
+            moveElevator(0);
           }}
         >
           Floor 4

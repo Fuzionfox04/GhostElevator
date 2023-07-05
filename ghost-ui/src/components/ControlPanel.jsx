@@ -11,6 +11,7 @@ function ControlPanel({
   currentFloor,
   setCurrentFloor,
 }) {
+function ControlPanel({style, setStyle, setDoor,peopleCoordinates, updatePeopleCoordinates, no_of_floors }) {
   return (
     <div className="control-panel">
       <LiftButtons

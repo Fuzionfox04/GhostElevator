@@ -70,15 +70,12 @@ function App() {
         />
       </div>
       <div className="main-grid-item">
-        <ControlPanel
-          style={style}
-          setStyle={setStyle}
-          setDoor={setDoor}
-          door={door}
-          peopleCoordinates={peopleCoordinates}
-          updatePeopleCoordinates={updatePeopleCoordinates}
-        />{" "}
-      </div>
+
+        <ControlPanel style={style} setStyle={setStyle} setDoor={setDoor} door={door}
+peopleCoordinates={peopleCoordinates}
+          updatePeopleCoordinates={updatePeopleCoordinates} no_of_floors={no_of_floors}
+/>      </div>
+
     </div>
   );
 }

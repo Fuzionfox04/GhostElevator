@@ -8,13 +8,13 @@ function Space({
 }) {
   return (
     <div>
-      <h1>
+      <h2>
         {peopleCoordinates.map((person) =>
           person.floor_no === floor_no && person.space_no === space_noo
             ? person.name
             : ""
         )}
-      </h1>
+      </h2>
     </div>
   );
 }

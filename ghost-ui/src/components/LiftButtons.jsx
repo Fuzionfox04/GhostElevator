@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 
+
 function LiftButtons({style, setStyle, setDoor,no_of_floors}) {
 
   console.log(no_of_floors)
@@ -11,41 +12,36 @@ function moveElevator(floor) {
   setStyle(
     {
       transform: `translateY(${targetPosition}px)`,
-      transitionDuration: "2s",
-    }
+      transitionDuration: "1s",
+    });
 
-  );
- 
-  currentFloor = floor;
-  setTimeout(() => {
-    opendoor();
+    currentFloor = floor;
     setTimeout(() => {
-      closedoor();
-    },3000 
-    );
-  },3000 
-  );
-}
-  function opendoor(){
-    setDoor(true);
-
+      opendoor();
+      setTimeout(() => {
+        closedoor();
+      }, 5000);
+    }, 1000);
   }
-  function closedoor(){
+  function opendoor() {
+    setDoor(true);
+  }
+  function closedoor() {
     setDoor(false);
   }
-  useEffect(()=>{
-    var buttons=document.querySelectorAll('.floor button');
+  useEffect(() => {
+    var buttons = document.querySelectorAll(".floor button");
     buttons.forEach((button) => {
-     button.addEventListener('click', function () {
-       console.log(button);
-     })});
+      button.addEventListener("click", function () {
+        console.log(button);
+      });
+    });
+  }, []);
 
-  },[])
-
-
-  return (<div>
-
+  return (
+    <div>
       <div class="floor">
+
         <button onClick={()=>{
           moveElevator(0);
         }}>Floor G</button>
@@ -68,7 +64,8 @@ function moveElevator(floor) {
           closedoor
         }>close</button>
       </div>
-  </div>);
+    </div>
+  );
 }
 
 export default LiftButtons;

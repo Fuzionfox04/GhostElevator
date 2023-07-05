@@ -59,6 +59,8 @@ function App() {
           no_of_spaces={no_of_spaces}
           peopleCoordinates={peopleCoordinates}
           updatePeopleCoordinates={updatePeopleCoordinates}
+          currentFloor={currentFloor}
+          setCurrentFloor={setCurrentFloor}
         />
       </div>
       <div className="main-grid-item elevator-shaft">
@@ -77,6 +79,8 @@ function App() {
           door={door}
           peopleCoordinates={peopleCoordinates}
           updatePeopleCoordinates={updatePeopleCoordinates}
+          currentFloor={currentFloor}
+          setCurrentFloor={setCurrentFloor}
         />{" "}
       </div>
     </div>

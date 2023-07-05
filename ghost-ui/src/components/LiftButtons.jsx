@@ -7,7 +7,7 @@ function LiftButtons({style, setStyle, setDoor}) {
 
 function moveElevator(floor) {
    // Assuming each floor has a height of 100px
-  const targetPosition = (floor - 1) * 130;
+  const targetPosition = (floor) * 140;
   setStyle(
     {
       transform: `translateY(${targetPosition}px)`,
@@ -47,20 +47,20 @@ function moveElevator(floor) {
 
       <div class="floor">
         <button onClick={()=>{
-          moveElevator(1);
-        }}>Floor 4</button>
-        <button onClick={()=>{
-          moveElevator(2);
-        }}>Floor 3</button>
+          moveElevator(4);
+        }}>Floor G</button>
         <button onClick={()=>{
           moveElevator(3);
-        }}>Floor 2</button>
-        <button onClick={()=>{
-          moveElevator(4);
         }}>Floor 1</button>
         <button onClick={()=>{
-          moveElevator(5);
-        }}>Floor G</button>
+          moveElevator(2);
+        }}>Floor 2</button>
+        <button onClick={()=>{
+          moveElevator(1);
+        }}>Floor 3</button>
+        <button onClick={()=>{
+          moveElevator(0);
+        }}>Floor 4</button>
         <button onClick={
           opendoor
         }>open</button>

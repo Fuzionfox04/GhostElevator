@@ -27,6 +27,7 @@
   grid-auto-rows: 100%;
   grid-auto-flow: column;
   justify-content: stretch;
+  grid-template-columns: repeat(6, 1fr);
 }
 
 .space {

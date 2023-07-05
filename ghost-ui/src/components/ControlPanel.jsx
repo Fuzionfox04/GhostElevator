@@ -10,16 +10,19 @@ function ControlPanel({
   updatePeopleCoordinates,
   currentFloor,
   setCurrentFloor,
+  no_of_floors,
+  updateFloorno,
 }) {
-function ControlPanel({style, setStyle, setDoor,peopleCoordinates, updatePeopleCoordinates, no_of_floors }) {
   return (
     <div className="control-panel">
       <LiftButtons
         style={style}
         setStyle={setStyle}
         setDoor={setDoor}
+        no_of_floors={no_of_floors}
         currentFloor={currentFloor}
         setCurrentFloor={setCurrentFloor}
+        updateFloorno={updateFloorno}
       />
       <PeopleControls
         peopleCoordinates={peopleCoordinates}

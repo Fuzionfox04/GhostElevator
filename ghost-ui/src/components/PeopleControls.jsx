@@ -1,48 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 
-function PeopleControls() {
-  const [selectedPerson, setSelectedPerson] = useState("E");
+function PeopleControls({ peopleCoordinates, updatePeopleCoordinates }) {
   return (
     <div>
-      People Controls
-      <button
-        onClick={() => {
-          setSelectedPerson("A");
-        }}
-      >
-        A
-      </button>
-      <button
-        onClick={() => {
-          setSelectedPerson("B");
-        }}
-      >
-        B
-      </button>
-      <button
-        onClick={() => {
-          setSelectedPerson("C");
-        }}
-      >
-        C
-      </button>
-      <button
-        onClick={() => {
-          setSelectedPerson("D");
-        }}
-      >
-        D
-      </button>
-      <button
-        onClick={() => {
-          setSelectedPerson("E");
-        }}
-      >
-        E
-      </button>
-      <h1>{selectedPerson}</h1>
-      <button>←</button>
-      <button1>→</button1>
+      {peopleCoordinates.map((x) => (
+        <>
+          {" "}
+          <button onClick={() => updatePeopleCoordinates(x.name, "←")}>
+            {x.name}←
+          </button>{" "}
+          <button onClick={() => updatePeopleCoordinates(x.name, "→")}>
+            {" "}
+            {x.name}→
+          </button>{" "}
+        </>
+      ))}
     </div>
   );
 }

@@ -3,7 +3,7 @@ import "./App.css";
 import ControlPanel from "./components/ControlPanel";
 import Floors from "./components/Floors";
 import LiftShaft from "./components/LiftShaft";
-
+import { useState } from "react";
 function App() {
   let no_of_floors = 5;
   let no_of_spaces = 6;
@@ -33,6 +33,10 @@ function App() {
       })
     );
   };
+
+  const[style, setStyle] = useState({});
+  const[door, setDoor] = useState(false);
+
   return (
     <div className="App main-grid">
       <div className="main-grid-item">
@@ -44,14 +48,13 @@ function App() {
         />
       </div>
       <div className="main-grid-item elevator-shaft">
-        <LiftShaft />
+        <LiftShaft style={style} setStyle={setStyle} door={door} setDoor={setDoor}/>
       </div>
       <div className="main-grid-item">
-        <ControlPanel
-          peopleCoordinates={peopleCoordinates}
+        <ControlPanel style={style} setStyle={setStyle} setDoor={setDoor} door={door}
+peopleCoordinates={peopleCoordinates}
           updatePeopleCoordinates={updatePeopleCoordinates}
-        />
-      </div>
+/>      </div>
     </div>
   );
 }

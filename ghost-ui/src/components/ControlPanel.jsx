@@ -2,10 +2,10 @@ import React from "react";
 import LiftButtons from "./LiftButtons";
 import PeopleControls from "./PeopleControls";
 
-function ControlPanel({ peopleCoordinates, updatePeopleCoordinates }) {
+function ControlPanel({style, setStyle, setDoor,peopleCoordinates, updatePeopleCoordinates }) {
   return (
     <div className="control-panel">
-      <LiftButtons />
+      <LiftButtons style={style} setStyle={setStyle} setDoor={setDoor}/>
       <PeopleControls
         peopleCoordinates={peopleCoordinates}
         updatePeopleCoordinates={updatePeopleCoordinates}

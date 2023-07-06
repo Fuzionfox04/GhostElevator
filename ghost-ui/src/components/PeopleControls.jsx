@@ -6,10 +6,16 @@ function PeopleControls({ peopleCoordinates, updatePeopleCoordinates }) {
       {peopleCoordinates.map((x) => (
         <>
           {" "}
-          <button onClick={() => updatePeopleCoordinates(x.name, "←")}>
+          <button
+            className="people-button"
+            onClick={() => updatePeopleCoordinates(x.name, "←")}
+          >
             {x.name}←
           </button>{" "}
-          <button onClick={() => updatePeopleCoordinates(x.name, "→")}>
+          <button
+            className="people-button"
+            onClick={() => updatePeopleCoordinates(x.name, "→")}
+          >
             {" "}
             {x.name}→
           </button>{" "}

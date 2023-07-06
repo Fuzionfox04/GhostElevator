@@ -10,11 +10,11 @@ function App() {
   const [door, setDoor] = useState(false);
 
   const [peopleCoordinates, setPeopleCoordinates] = useState([
-    { name: "🧍‍♂️", floor_no: 0, space_no: 0 },
-    { name: "🧍‍♀️", floor_no: 0, space_no: 1 },
-    { name: "🕴", floor_no: 0, space_no: 2 },
-    { name: "⛹️‍♀️", floor_no: 0, space_no: 3 },
-    { name: "💃", floor_no: 0, space_no: 4 },
+    { name: "🧍‍♂️", floor_no: 0, space_no: 0, endpoint: 1, weight: 50 },
+    { name: "🧍‍♀️", floor_no: 0, space_no: 1, endpoint: 2, weight: 50 },
+    { name: "🕴", floor_no: 0, space_no: 2, endpoint: 3, weight: 50 },
+    { name: "⛹️‍♀️", floor_no: 0, space_no: 3, endpoint: 4, weight: 100 },
+    { name: "💃", floor_no: 0, space_no: 4, endpoint: 3, weight: 100 },
   ]);
 
   const updateFloorno = (currentFloor) => {
@@ -40,6 +40,8 @@ function App() {
         if (person.floor_no === currentFloor) {
           if (door === true) {
             return person.space_no + 1;
+          } else {
+            return person.space_no;
           }
         } else {
           return person.space_no;
@@ -103,6 +105,8 @@ function App() {
           setStyle={setStyle}
           door={door}
           setDoor={setDoor}
+          peopleCoordinates={peopleCoordinates}
+          updatePeopleCoordinates={updatePeopleCoordinates}
         />
       </div>
       <div className="main-grid-item">

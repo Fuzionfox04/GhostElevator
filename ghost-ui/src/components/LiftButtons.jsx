@@ -32,7 +32,7 @@ function LiftButtons({
   function moveElevator(floor) {
     setCurrentFloor(floor);
     // Assuming each floor has a height of 100px
-    const targetPosition = (no_of_floors - floor - 1) * 140;
+    const targetPosition = (no_of_floors - floor - 1) * 160;
     setStyle({
       transform: `translateY(${targetPosition}px)`,
       transitionDuration: "1s",

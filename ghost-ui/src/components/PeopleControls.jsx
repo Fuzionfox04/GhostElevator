@@ -8,18 +8,19 @@ function PeopleControls({ peopleCoordinates, updatePeopleCoordinates }) {
           {" "}
           <button
             className="people-button"
-            onClick={() => updatePeopleCoordinates(x.name, "←")}
-          >
-            ←
-          </button>
-          <h3>{x.name}</h3>
-          <button
-            className="people-button"
             onClick={() => updatePeopleCoordinates(x.name, "→")}
           >
             {" "}
             →
-          </button>{" "}
+          </button>
+          <h3>{x.name}</h3>
+          <button
+            className="people-button"
+            onClick={() => updatePeopleCoordinates(x.name, "←")}
+          >
+            ←
+          </button>
+         {" "}
         </div>
       ))}
     </div>

@@ -2,7 +2,7 @@
   display: grid;
   gap: 0px;
   height: 100vh;
-  grid-template-columns: 50% 10% 40%;
+  grid-template-columns: 3fr 1fr 2fr;
   border: 1px solid black;
   margin: 0px;
   padding: 0;
@@ -15,7 +15,6 @@
 .floors {
   display: grid;
   grid-template-columns: 100%;
-
   gap: 2%;
   align-content: stretch;
   height: 100%;
@@ -23,16 +22,16 @@
 
 .floor {
   display: grid;
-  border: 1px solid yellow;
+  border: 1px solid rgb(11, 11, 11);
   grid-auto-rows: 100%;
   grid-auto-flow: column;
   justify-content: stretch;
   grid-template-columns: repeat(6, 1fr);
 }
 
-.space {
+/* .space {
   border: 2px solid purple;
-}
+} */
 
 .elevator-shaft {
 }
@@ -44,26 +43,18 @@
   grid-template-rows: 70% 30%;
 }
 
-.people-button {
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-
-  display: inline-block;
-  outline: none;
-  cursor: pointer;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 600;
-  border-radius: 8px;
-  padding: 14px 24px;
-  border: none;
-  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s,
-    -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s;
-  background: linear-gradient(
-    to right,
-    rgb(230, 30, 77) 0%,
-    rgb(227, 28, 95) 50%,
-    rgb(215, 4, 102) 100%
-  );
-  color: #fff;
+.floor1{
+  text-align: center;
+  max-width: 300px;
+  margin: 0 auto;
 }
+.btn-floor{
+  width: 70px;
+  height: 70px;
+  margin: 20px;
+  border-radius: 80%;
+  display: inline-block;
+  background: rgb(250, 4, 4);
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+

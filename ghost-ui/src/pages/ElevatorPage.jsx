@@ -78,7 +78,7 @@ function ElevatorPage() {
           height: person.height,
           officefloor: person.officefloor,
           id: person.id,
-          bmi: person.weight / (person.height * person.height),
+          bmi: Math.round((person.weight / person.height / person.height)*10000),
         };
         return temp;
       })

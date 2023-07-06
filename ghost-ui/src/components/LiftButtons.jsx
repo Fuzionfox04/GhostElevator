@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom";
+
 function LiftButtons({
   style,
   setStyle,
@@ -8,6 +10,8 @@ function LiftButtons({
   updateFloorno,
   peopleCoordinates,
 }) {
+  const navigate = useNavigate();
+
   let totalWeight = 0;
   let weightLimit = 200;
   const checkWeight = (floor) => {
@@ -114,6 +118,10 @@ function LiftButtons({
         <button class="btn-floor" onClick={closedoor}>
           close
         </button>
+        <button class="btn-floor" onClick={() => navigate("/log")}>
+          log
+        </button>
+        <button class="btn-floor">auto id</button>
       </div>
     </div>
   );

@@ -18,7 +18,9 @@ function PeopleControls({ peopleCoordinates, updatePeopleCoordinates }) {
           </button>
           <h3
             className="Tooltip"
-            data-title={"H: " + x.height + " W: " + x.weight + "Bmi: " + x.bmi}
+            data-title={
+              "H: " + x.height + " cm \nW: " + x.weight + " kg\nBmi: " + x.bmi
+            }
           >
             {x.name}
           </h3>

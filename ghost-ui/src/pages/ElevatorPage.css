@@ -124,3 +124,12 @@ h3 {
   left: 50%;
   transform: scale(1.8, 1) translate(-33%, -50%);
 }
+
+.tooltip-inner {
+  white-space: pre-wrap;
+}
+
+.employeeForm {
+  display: flex;
+  flex-direction: column;
+}

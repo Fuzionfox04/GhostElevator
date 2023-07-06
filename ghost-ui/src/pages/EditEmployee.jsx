@@ -33,7 +33,7 @@ function EditEmployeeForm({ emp }) {
 
   const navigate = useNavigate();
   return (
-    <div>
+    <div className="employeeForm">
       <TextField
         label="Name"
         variant="filled"
@@ -103,6 +103,9 @@ function EditEmployeeForm({ emp }) {
         }}
       >
         SAVE
+      </button>
+      <button class="btn-floor" onClick={() => navigate("/elevator")}>
+        back
       </button>
     </div>
   );

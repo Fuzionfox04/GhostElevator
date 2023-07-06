@@ -18,7 +18,6 @@ function ElevatorPage() {
       name: "🧍‍♂️",
       floor_no: 0,
       space_no: 0,
-      endpoint: 1,
       weight: 50,
       height: 100,
       officefloor: 2,
@@ -28,7 +27,6 @@ function ElevatorPage() {
       name: "🧍‍♀️",
       floor_no: 0,
       space_no: 1,
-      endpoint: 2,
       weight: 50,
       height: 110,
       officefloor: 3,
@@ -38,7 +36,6 @@ function ElevatorPage() {
       name: "🕴",
       floor_no: 0,
       space_no: 2,
-      endpoint: 3,
       weight: 50,
       height: 120,
       officefloor: 4,
@@ -48,7 +45,6 @@ function ElevatorPage() {
       name: "⛹️‍♀️",
       floor_no: 0,
       space_no: 3,
-      endpoint: 4,
       weight: 100,
       height: 130,
       officefloor: 1,
@@ -58,7 +54,6 @@ function ElevatorPage() {
       name: "💃",
       floor_no: 0,
       space_no: 4,
-      endpoint: 3,
       weight: 101,
       height: 150,
       officefloor: 3,
@@ -74,7 +69,6 @@ function ElevatorPage() {
           floor_no: person.floor_no,
           space_no: person.space_no,
           weight: person.weight,
-          endpoint: person.endpoint,
           height: person.height,
           officefloor: person.officefloor,
           id: person.id,
@@ -85,8 +79,6 @@ function ElevatorPage() {
     );
   }, []);
 
-  console.log(peopleCoordinates);
-
   const updateFloorno = (currentFloor) => {
     setPeopleCoordinates(
       peopleCoordinates.map((person) => {
@@ -96,7 +88,6 @@ function ElevatorPage() {
             floor_no: currentFloor,
             space_no: person.space_no,
             weight: person.weight,
-            endpoint: person.endpoint,
             height: person.height,
             officefloor: person.officefloor,
             id: person.id,

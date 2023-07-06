@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function PeopleControls({ peopleCoordinates, updatePeopleCoordinates }) {
+  const navigate = useNavigate();
+
   return (
     <div className="control-btn">
       {peopleCoordinates.map((x) => (
@@ -14,13 +17,13 @@ function PeopleControls({ peopleCoordinates, updatePeopleCoordinates }) {
             →
           </button>
           <h3>{x.name}</h3>
+          <button onClick={() => navigate(`/employee/edit/${x.id}`)}>i</button>
           <button
             className="people-button"
             onClick={() => updatePeopleCoordinates(x.name, "←")}
           >
             ←
-          </button>
-         {" "}
+          </button>{" "}
         </div>
       ))}
     </div>

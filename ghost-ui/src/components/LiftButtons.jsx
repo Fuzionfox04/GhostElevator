@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function LiftButtons({
@@ -11,20 +12,43 @@ function LiftButtons({
   peopleCoordinates,
 }) {
   const navigate = useNavigate();
+  function removeDuplicates(arr) {
+    return [...new Set(arr)];
+  }
+  const [cardAccess, setCardAccess] = useState([]);
+  const [toggleCardAccess, setToggleCardAccess] = useState(false);
 
+  const getCardAccess = () => {
+    let temp = [];
+    peopleCoordinates.map((person) => {
+      if (person.space_no === 6) {
+        temp.push(person.officefloor);
+      }
+    });
+    temp = removeDuplicates(temp.sort());
+    console.log(temp);
+    setCardAccess(temp);
+  };
+
+  const autoMove = () => {
+    getCardAccess();
+    console.log(cardAccess);
+    for (let i in cardAccess) {
+      let k = i;
+      setTimeout(function () {
+        console.log("count ", k);
+        checkWeight(cardAccess[i]);
+      }, 1000 * (k + 1));
+    }
+    closedoor();
+  };
   let totalWeight = 0;
   let weightLimit = 200;
   const checkWeight = (floor) => {
     totalWeight = 0;
     peopleCoordinates.map((person) => {
       if (person.space_no === 6) {
-        console.log(person.space_no);
-        console.log(person.identifier + ":" + totalWeight);
-        console.log(typeof totalWeight);
-        console.log(person.name + ":" + person.weight);
-        console.log(typeof person.weight);
         totalWeight = totalWeight + person.weight;
-        console.log(person.name + ":" + totalWeight);
       }
     });
     if (totalWeight < weightLimit) {
@@ -115,13 +139,24 @@ function LiftButtons({
         <button class="btn-floor" onClick={opendoor}>
           open
         </button>
-        <button class="btn-floor" onClick={closedoor}>
+        <button
+          class="btn-floor"
+          onClick={toggleCardAccess === true ? autoMove : closedoor}
+        >
           close
         </button>
         <button class="btn-floor" onClick={() => navigate("/log")}>
           log
         </button>
-        <button class="btn-floor">auto id</button>
+        <button
+          class="btn-floor"
+          style={
+            toggleCardAccess === true ? { background: "rgb(0, 204, 31)" } : {}
+          }
+          onClick={() => setToggleCardAccess(!toggleCardAccess)}
+        >
+          auto id
+        </button>
       </div>
     </div>
   );

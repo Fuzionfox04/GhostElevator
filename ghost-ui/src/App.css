@@ -52,12 +52,10 @@
   width: 70px;
   height: 70px;
   margin: 20px;
-  border-radius: 80%;
+  border-radius: 25%;
   display: inline-block;
-  background: rgb(250, 4, 4);
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background: rgb(0, 0, 0);
+  color: #fff;
 }
 
 .people-button {

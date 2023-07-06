@@ -1,5 +1,3 @@
-import React, { useEffect, useState } from "react";
-
 function LiftButtons({
   style,
   setStyle,
@@ -10,9 +8,28 @@ function LiftButtons({
   updateFloorno,
   peopleCoordinates,
 }) {
-  console.log(no_of_floors);
+  let totalWeight = 0;
+  let weightLimit = 200;
+  const checkWeight = (floor) => {
+    totalWeight = 0;
+    peopleCoordinates.map((person) => {
+      if (person.space_no === 6) {
+        console.log(person.name + ":" + totalWeight);
+        console.log(typeof totalWeight);
+        console.log(person.name + ":" + person.weight);
+        console.log(typeof person.weight);
+        totalWeight = totalWeight + person.weight;
+        console.log(person.name + ":" + totalWeight);
+      }
+    });
+    if (totalWeight < weightLimit) {
+      moveElevator(floor);
+    } else {
+      alert("hi");
+    }
+  };
+
   function moveElevator(floor) {
-    console.log(floor);
     setCurrentFloor(floor);
     // Assuming each floor has a height of 100px
     const targetPosition = (no_of_floors - floor - 1) * 140;
@@ -44,7 +61,7 @@ function LiftButtons({
           class="btn-floor"
           floor="0"
           onClick={() => {
-            moveElevator(0);
+            checkWeight(0);
           }}
         >
           G
@@ -53,7 +70,7 @@ function LiftButtons({
           class="btn-floor"
           floor="1"
           onClick={() => {
-            moveElevator(1);
+            checkWeight(1);
           }}
         >
           1
@@ -62,7 +79,7 @@ function LiftButtons({
           class="btn-floor"
           floor="2"
           onClick={() => {
-            moveElevator(2);
+            checkWeight(2);
           }}
         >
           2
@@ -71,7 +88,7 @@ function LiftButtons({
           class="btn-floor"
           floor="3"
           onClick={() => {
-            moveElevator(3);
+            checkWeight(3);
           }}
         >
           3
@@ -80,7 +97,7 @@ function LiftButtons({
           class="btn-floor"
           floor="4"
           onClick={() => {
-            moveElevator(4);
+            checkWeight(4);
           }}
         >
           4

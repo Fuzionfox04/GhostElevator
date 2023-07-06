@@ -36,6 +36,18 @@
   grid-template-columns: 100%;
   grid-template-rows: 70% 30%;
 }
+@keyframes move {
+  from {
+      transform: translateX(0%);
+  }
+  to {
+    transform: translateX(50%);
+  }
+}
+
+.ppl{
+  animation: move 10s linear infinite;
+}
 
 .floor1 {
   text-align: center;

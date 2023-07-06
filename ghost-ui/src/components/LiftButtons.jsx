@@ -11,31 +11,17 @@ function LiftButtons({
   peopleCoordinates,
 }) {
   console.log(no_of_floors);
-
-  function moveElevator(floor, endPoint) {
-    console.log(floor);
-    setCurrentFloor(floor);
-    // Assuming each floor has a height of 100px
-    const targetPosition = (no_of_floors - endPoint - 1) * 140;
-    setStyle({
-      transform: `translateY(${targetPosition}px)`,
-      transitionDuration: "1s",
-    });
-    updateFloorno(floor);
-    setTimeout(() => {
-      opendoor();
-    }, 1000);
-  }
   function moveElevator(floor) {
     console.log(floor);
     setCurrentFloor(floor);
     // Assuming each floor has a height of 100px
     const targetPosition = (no_of_floors - floor - 1) * 140;
     setStyle({
-
       transform: `translateY(${targetPosition}px)`,
       transitionDuration: "1s",
     });
+
+    updateFloorno(floor);
 
     currentFloor = floor;
     setTimeout(() => {
@@ -54,27 +40,57 @@ function LiftButtons({
   return (
     <div>
       <div class="floor1">
-        <button  class="btn-floor" floor="0" onClick={()=>{
-          moveElevator(0);
-        }}>G</button>
-        <button class="btn-floor" floor="1" onClick={()=>{
-          moveElevator(1);
-        }}>1</button>
-        <button class="btn-floor" floor="2" onClick={()=>{
-          moveElevator(2);
-        }}>2</button>
-        <button class="btn-floor" floor="3" onClick={()=>{
-          moveElevator(3);
-        }}>3</button>
-        <button class="btn-floor" floor="4" onClick={()=>{
-          moveElevator(4);
-        }}>4</button>
-        <button class="btn-floor" onClick={
-          opendoor
-        }>open</button>
-        <button class="btn-floor" onClick={
-          closedoor
-        }>close</button>
+        <button
+          class="btn-floor"
+          floor="0"
+          onClick={() => {
+            moveElevator(0);
+          }}
+        >
+          G
+        </button>
+        <button
+          class="btn-floor"
+          floor="1"
+          onClick={() => {
+            moveElevator(1);
+          }}
+        >
+          1
+        </button>
+        <button
+          class="btn-floor"
+          floor="2"
+          onClick={() => {
+            moveElevator(2);
+          }}
+        >
+          2
+        </button>
+        <button
+          class="btn-floor"
+          floor="3"
+          onClick={() => {
+            moveElevator(3);
+          }}
+        >
+          3
+        </button>
+        <button
+          class="btn-floor"
+          floor="4"
+          onClick={() => {
+            moveElevator(4);
+          }}
+        >
+          4
+        </button>
+        <button class="btn-floor" onClick={opendoor}>
+          open
+        </button>
+        <button class="btn-floor" onClick={closedoor}>
+          close
+        </button>
       </div>
     </div>
   );

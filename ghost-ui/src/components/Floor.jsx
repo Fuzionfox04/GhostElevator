@@ -1,5 +1,5 @@
 import React from "react";
-import Space from "./space";
+import Space from "./Space";
 
 function Floor({
   no_of_spaces,

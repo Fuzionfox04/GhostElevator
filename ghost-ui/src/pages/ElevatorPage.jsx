@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./ElevatorPage.css";
 
 import { Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
@@ -66,6 +66,27 @@ function ElevatorPage() {
     },
   ]);
 
+  useEffect(() => {
+    setPeopleCoordinates(
+      peopleCoordinates.map((person) => {
+        let temp = {
+          name: person.name,
+          floor_no: person.floor_no,
+          space_no: person.space_no,
+          weight: person.weight,
+          endpoint: person.endpoint,
+          height: person.height,
+          officefloor: person.officefloor,
+          id: person.id,
+          bmi: person.weight / (person.height * person.height),
+        };
+        return temp;
+      })
+    );
+  }, []);
+
+  console.log(peopleCoordinates);
+
   const updateFloorno = (currentFloor) => {
     setPeopleCoordinates(
       peopleCoordinates.map((person) => {
@@ -79,6 +100,7 @@ function ElevatorPage() {
             height: person.height,
             officefloor: person.officefloor,
             id: person.id,
+            bmi: person.bmi,
           };
           return temp;
         } else {
@@ -135,6 +157,7 @@ function ElevatorPage() {
             height: person.height,
             officefloor: person.officefloor,
             id: person.id,
+            bmi: person.bmi,
           };
           return temp;
         } else {

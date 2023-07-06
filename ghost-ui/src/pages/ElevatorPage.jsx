@@ -20,7 +20,9 @@ function ElevatorPage() {
       space_no: 0,
       endpoint: 1,
       weight: 50,
-      identifier: "red-tshirt",
+      height: 100,
+      officefloor: 2,
+      id: 1,
     },
     {
       name: "🧍‍♀️",
@@ -28,7 +30,9 @@ function ElevatorPage() {
       space_no: 1,
       endpoint: 2,
       weight: 50,
-      identifier: "purple-girl",
+      height: 110,
+      officefloor: 3,
+      id: 2,
     },
     {
       name: "🕴",
@@ -36,7 +40,9 @@ function ElevatorPage() {
       space_no: 2,
       endpoint: 3,
       weight: 50,
-      identifier: "billa",
+      height: 120,
+      officefloor: 4,
+      id: 3,
     },
     {
       name: "⛹️‍♀️",
@@ -44,7 +50,9 @@ function ElevatorPage() {
       space_no: 3,
       endpoint: 4,
       weight: 100,
-      identifier: "basketboy",
+      height: 130,
+      officefloor: 1,
+      id: 4,
     },
     {
       name: "💃",
@@ -52,7 +60,9 @@ function ElevatorPage() {
       space_no: 4,
       endpoint: 3,
       weight: 101,
-      identifier: "dancing-queen",
+      height: 150,
+      officefloor: 3,
+      id: 5,
     },
   ]);
 
@@ -66,7 +76,9 @@ function ElevatorPage() {
             space_no: person.space_no,
             weight: person.weight,
             endpoint: person.endpoint,
-            identifier: person.identifier,
+            height: person.height,
+            officefloor: person.officefloor,
+            id: person.id,
           };
           return temp;
         } else {
@@ -120,7 +132,9 @@ function ElevatorPage() {
             space_no: updateSpaceno(direction, person),
             weight: person.weight,
             endpoint: person.endpoint,
-            identifier: person.identifier,
+            height: person.height,
+            officefloor: person.officefloor,
+            id: person.id,
           };
           return temp;
         } else {

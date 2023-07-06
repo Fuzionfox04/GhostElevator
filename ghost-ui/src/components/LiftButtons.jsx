@@ -1,14 +1,38 @@
 import React, { useEffect, useState } from "react";
 
+function LiftButtons({
+  style,
+  setStyle,
+  setDoor,
+  currentFloor,
+  setCurrentFloor,
+  no_of_floors,
+  updateFloorno,
+  peopleCoordinates,
+}) {
+  console.log(no_of_floors);
 
-function LiftButtons({style, setStyle, setDoor,no_of_floors}) {
-  let currentFloor = 1;
+  function moveElevator(floor, endPoint) {
+    console.log(floor);
+    setCurrentFloor(floor);
+    // Assuming each floor has a height of 100px
+    const targetPosition = (no_of_floors - endPoint - 1) * 140;
+    setStyle({
+      transform: `translateY(${targetPosition}px)`,
+      transitionDuration: "1s",
+    });
+    updateFloorno(floor);
+    setTimeout(() => {
+      opendoor();
+    }, 1000);
+  }
+  function moveElevator(floor) {
+    console.log(floor);
+    setCurrentFloor(floor);
+    // Assuming each floor has a height of 100px
+    const targetPosition = (no_of_floors - floor - 1) * 140;
+    setStyle({
 
-function moveElevator(floor) {
-   // Assuming each floor has a height of 100px
-  const targetPosition = (no_of_floors-floor-1) * 140;
-  setStyle(
-    {
       transform: `translateY(${targetPosition}px)`,
       transitionDuration: "1s",
     });

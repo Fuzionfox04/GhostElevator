@@ -23,6 +23,7 @@ function ControlPanel({
         currentFloor={currentFloor}
         setCurrentFloor={setCurrentFloor}
         updateFloorno={updateFloorno}
+        peopleCoordinates={peopleCoordinates}
       />
       <PeopleControls
         peopleCoordinates={peopleCoordinates}

@@ -14,7 +14,8 @@ function LiftButtons({
     totalWeight = 0;
     peopleCoordinates.map((person) => {
       if (person.space_no === 6) {
-        console.log(person.name + ":" + totalWeight);
+        console.log(person.space_no);
+        console.log(person.identifier + ":" + totalWeight);
         console.log(typeof totalWeight);
         console.log(person.name + ":" + person.weight);
         console.log(typeof person.weight);
@@ -25,7 +26,12 @@ function LiftButtons({
     if (totalWeight < weightLimit) {
       moveElevator(floor);
     } else {
-      alert("hi");
+      alert(
+        "weight exceeded!\nMax weight: " +
+          weightLimit +
+          "\nTotal weight: " +
+          totalWeight
+      );
     }
   };
 

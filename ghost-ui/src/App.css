@@ -38,14 +38,14 @@
 }
 @keyframes move {
   from {
-      transform: translateX(0%);
+    transform: translateX(0%);
   }
   to {
     transform: translateX(50%);
   }
 }
 
-.ppl{
+.ppl {
   animation: move 10s linear infinite;
 }
 
@@ -97,4 +97,8 @@ h3 {
 
 .ppl {
   font-size: 25px;
+}
+
+.hi {
+  display: flex;
 }

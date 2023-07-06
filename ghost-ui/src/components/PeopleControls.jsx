@@ -13,7 +13,8 @@ function PeopleControls({ peopleCoordinates, updatePeopleCoordinates }) {
             {" "}
             →
           </button>
-          <h3>{x.name}</h3>
+          <h3 className="Tooltip"
+        data-title={"H "+x.height+" W "+x.weight}>{x.name}</h3>
           <button
             className="people-button"
             onClick={() => updatePeopleCoordinates(x.name, "←")}

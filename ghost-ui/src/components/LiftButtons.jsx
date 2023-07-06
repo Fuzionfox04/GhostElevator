@@ -17,6 +17,16 @@ function LiftButtons({
   }
   const [cardAccess, setCardAccess] = useState([]);
   const [toggleCardAccess, setToggleCardAccess] = useState(false);
+  const [toggleGhost, setToggleGhost] = useState(false);
+
+  const Ghost = () => {
+    for (let i = 0; i < 200; i++) {
+      let k = i;
+      setTimeout(function () {
+        moveElevator(Math.round(Math.random() * 4));
+      }, 700 * (k + 1));
+    }
+  };
 
   const getCardAccess = () => {
     let temp = [];
@@ -94,45 +104,65 @@ function LiftButtons({
         <button
           class="btn-floor"
           floor="0"
-          onClick={() => {
-            checkWeight(0);
-          }}
+          onClick={
+            toggleGhost === true
+              ? Ghost
+              : () => {
+                  checkWeight(0);
+                }
+          }
         >
           G
         </button>
         <button
           class="btn-floor"
           floor="1"
-          onClick={() => {
-            checkWeight(1);
-          }}
+          onClick={
+            toggleGhost === true
+              ? Ghost
+              : () => {
+                  checkWeight(1);
+                }
+          }
         >
           1
         </button>
         <button
           class="btn-floor"
           floor="2"
-          onClick={() => {
-            checkWeight(2);
-          }}
+          onClick={
+            toggleGhost === true
+              ? Ghost
+              : () => {
+                  checkWeight(2);
+                }
+          }
         >
           2
         </button>
         <button
           class="btn-floor"
           floor="3"
-          onClick={() => {
-            checkWeight(3);
-          }}
+          onClick={
+            toggleGhost === true
+              ? Ghost
+              : () => {
+                  checkWeight(3);
+                }
+          }
         >
           3
         </button>
         <button
           class="btn-floor"
           floor="4"
-          onClick={() => {
-            checkWeight(4);
-          }}
+          onClick={
+            toggleGhost === true
+              ? Ghost
+              : () => {
+                  checkWeight(4);
+                }
+          }
         >
           4
         </button>
@@ -156,6 +186,13 @@ function LiftButtons({
           onClick={() => setToggleCardAccess(!toggleCardAccess)}
         >
           auto id
+        </button>
+        <button
+          class="btn-floor"
+          style={toggleGhost === true ? { background: "#c90000" } : {}}
+          onClick={() => setToggleGhost(!toggleGhost)}
+        >
+          Ghost
         </button>
       </div>
     </div>

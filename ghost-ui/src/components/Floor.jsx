@@ -1,5 +1,5 @@
 import React from "react";
-import Space from "./Space";
+import Space from "./space";
 
 function Floor({
   no_of_spaces,
@@ -18,6 +18,7 @@ function Floor({
             updatePeopleCoordinates={updatePeopleCoordinates}
             space_noo={index}
             floor_no={floor_no}
+            index={index}
           ></Space>
         </div>
       ))}

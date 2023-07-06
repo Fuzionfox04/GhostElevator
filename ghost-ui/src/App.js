@@ -10,11 +10,11 @@ function App() {
   const [door, setDoor] = useState(false);
 
   const [peopleCoordinates, setPeopleCoordinates] = useState([
-    { name: "🧍‍♂️", floor_no: 0, space_no: 0, endpoint: 1, weight: 50 },
-    { name: "🧍‍♀️", floor_no: 0, space_no: 1, endpoint: 2, weight: 50 },
-    { name: "🕴", floor_no: 0, space_no: 2, endpoint: 3, weight: 50 },
-    { name: "⛹️‍♀️", floor_no: 0, space_no: 3, endpoint: 4, weight: 100 },
-    { name: "💃", floor_no: 0, space_no: 4, endpoint: 3, weight: 100 },
+    { name: "🧍‍♂️", floor_no: 0, space_no: 0, endpoint: 1, weight: 50 , identifier:"red-tshirt"},
+    { name: "🧍‍♀️", floor_no: 0, space_no: 1, endpoint: 2, weight: 50 , identifier:"purple-girl"},
+    { name: "🕴", floor_no: 0, space_no: 2, endpoint: 3, weight: 50 , identifier:"billa"},
+    { name: "⛹️‍♀️", floor_no: 0, space_no: 3, endpoint: 4, weight: 100, identifier:"basketboy" },
+    { name: "💃", floor_no: 0, space_no: 4, endpoint: 3, weight: 100, identifier:"dancing-queen" },
   ]);
 
   const updateFloorno = (currentFloor) => {

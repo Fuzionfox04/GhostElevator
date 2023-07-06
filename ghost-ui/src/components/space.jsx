@@ -5,17 +5,21 @@ function Space({
   updatePeopleCoordinates,
   space_noo,
   floor_no,
+  index
 }) {
   return (
-    <div>
-      <h2>
-        {peopleCoordinates.map((person) =>
+    <>
+      
+        {
+        peopleCoordinates.map((person) =>(
+          
           person.floor_no === floor_no && person.space_no === space_noo
-            ? person.name
+            ? <h2 className={person.identifier}>{person.name}</h2>
             : ""
-        )}
-      </h2>
-    </div>
+          
+        ))}
+      
+    </>
   );
 }
 

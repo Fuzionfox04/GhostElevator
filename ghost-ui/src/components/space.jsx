@@ -8,7 +8,7 @@ function Space({
 }) {
   return (
     <div>
-      <h2>
+      <h2 className="ppl">
         {peopleCoordinates.map((person) =>
           person.floor_no === floor_no && person.space_no === space_noo
             ? person.name

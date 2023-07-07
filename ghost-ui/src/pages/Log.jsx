@@ -23,7 +23,7 @@ const Log = () => {
           elevator
         </button>
         <button class="btn-floor" onClick={() => navigate("/ElevatorLog")}>
-          ElevatorLog
+          LiftLog
         </button>
         <table>
           <tr>

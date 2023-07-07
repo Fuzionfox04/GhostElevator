@@ -12,6 +12,21 @@ function LiftButtons({
   updateFloorno,
   peopleCoordinates,
 }) {
+  const logData = (a, b, c) => {
+    const newMove = {
+      empId: a,
+      start: b,
+      end: c,
+    };
+    fetch("https://team1-ghostelevator.azurewebsites.net/api/lift", {
+      method: "POST",
+      body: JSON.stringify(newMove),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+  };
+
   const navigate = useNavigate();
   function removeDuplicates(arr) {
     return [...new Set(arr)];
@@ -75,25 +90,32 @@ function LiftButtons({
   };
 
   function moveElevator(floor) {
-    if(!door){setTimeout(() => {
-      setCurrentFloor(floor);
-    // Assuming each floor has a height of 100px
-    const targetPosition = (no_of_floors - floor - 1) * 150;
-    setStyle({
-      transform: `translateY(${targetPosition}px)`,
-      transitionDuration: "1s",
-    });
-
-    updateFloorno(floor);
-
-    currentFloor = floor;
-    setTimeout(() => {
-      opendoor();
+    if (!door) {
       setTimeout(() => {
-        closedoor();
-      }, 5000);
-    }, 1000);
-    }, 1000);
+        peopleCoordinates.map((person) => {
+          if (person.space_no === 6) {
+            logData(person.id, currentFloor, floor);
+          }
+        });
+        setCurrentFloor(floor);
+        setCurrentFloor(floor);
+        // Assuming each floor has a height of 100px
+        const targetPosition = (no_of_floors - floor - 1) * 150;
+        setStyle({
+          transform: `translateY(${targetPosition}px)`,
+          transitionDuration: "1s",
+        });
+
+        updateFloorno(floor);
+
+        currentFloor = floor;
+        setTimeout(() => {
+          opendoor();
+          setTimeout(() => {
+            closedoor();
+          }, 5000);
+        }, 1000);
+      }, 1000);
     }
   }
   function opendoor() {

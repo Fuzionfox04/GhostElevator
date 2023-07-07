@@ -133,3 +133,9 @@ h3 {
   display: flex;
   flex-direction: column;
 }
+
+.people-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

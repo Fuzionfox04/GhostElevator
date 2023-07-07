@@ -7,6 +7,9 @@ function Home() {
   return (
     <div>
       <h1>Home</h1>
+      <ol>
+        <li></li>
+      </ol>
       <button class="btn-floor" onClick={() => navigate("/log")}>
         log
       </button>

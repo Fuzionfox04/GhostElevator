@@ -48,6 +48,7 @@ code {
   background-size: 212px;
   background-repeat: no-repeat;
   border-radius: 5px;
+  border:1px solid black;
 }
 
 .door { border-radius: 5px;

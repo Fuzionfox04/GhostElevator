@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
-import "./Log.css";
+import "./ElevatorLog.css";
 import { useNavigate } from "react-router-dom";
 
-const Log = () => {
-  const [log, setLog] = useState([]);
+const ElevatorLog = () => {
+  const [log, setElevatorLog] = useState([]);
   const navigate = useNavigate();
   useEffect(() => {
-    fetch("https://team1-ghostelevator.azurewebsites.net/api/lift", {
+    fetch("https://team1-ghostelevator.azurewebsites.net/api/elevator", {
       method: "GET",
     })
       .then((res) => res.json())
       .then((res) => {
-        setLog(res);
+        setElevatorLog(res);
         console.log(res);
       });
   }, []);
@@ -22,17 +22,12 @@ const Log = () => {
         <button class="btn-floor" onClick={() => navigate("/elevator")}>
           elevator
         </button>
-        <button class="btn-floor" onClick={() => navigate("/ElevatorLog")}>
-          ElevatorLog
-        </button>
         <table>
           <tr>
             <th>id</th>
-            <th>Name</th>
-            <th>Emp Id</th>
-            <th>Start Floor</th>
-            <th>End Floor</th>
-            <th>Date Time</th>
+            <th>floorno</th>
+            <th>weight</th>
+            <th>dateTime</th>
           </tr>
           {log.map((x) => {
             console.log(x);
@@ -40,10 +35,8 @@ const Log = () => {
               <tbody>
                 <tr key={x.id}>
                   <td>{x.id}</td>
-                  <td>{x.employee?.name}</td>
-                  <td>{x.empId}</td>
-                  <td>{x.start}</td>
-                  <td>{x.end}</td>
+                  <td>{x.floorno}</td>
+                  <td>{x.weight}</td>
                   <td>{x.dateTime}</td>
                 </tr>
               </tbody>
@@ -55,4 +48,4 @@ const Log = () => {
   );
 };
 
-export default Log;
+export default ElevatorLog;

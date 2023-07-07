@@ -16,15 +16,19 @@ function PeopleControls({ peopleCoordinates, updatePeopleCoordinates }) {
             {" "}
             →
           </button>
-          <h3
-            className="Tooltip"
-            data-title={
-              "H: " + x.height + " cm \nW: " + x.weight + " kg\nBmi: " + x.bmi
-            }
-          >
-            {x.name}
-          </h3>
-          <button onClick={() => navigate(`/employee/edit/${x.id}`)}>i</button>
+          <div className="people-info">
+            <h3
+              className="Tooltip"
+              data-title={
+                "H: " + x.height + " cm \nW: " + x.weight + " kg\nBmi: " + x.bmi
+              }
+            >
+              {x.name}
+            </h3>
+            <button onClick={() => navigate(`/employee/edit/${x.id}`)}>
+              i
+            </button>
+          </div>
           <button
             className="people-button"
             onClick={() => updatePeopleCoordinates(x.name, "←")}

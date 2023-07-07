@@ -5,6 +5,7 @@ function LiftButtons({
   style,
   setStyle,
   setDoor,
+  door,
   currentFloor,
   setCurrentFloor,
   no_of_floors,
@@ -89,28 +90,27 @@ function LiftButtons({
   };
 
   function moveElevator(floor) {
-    peopleCoordinates.map((person) => {
-      if (person.space_no === 6) {
-        logData(person.id, currentFloor, floor);
-      }
-    });
-    setCurrentFloor(floor);
-    // Assuming each floor has a height of 100px
-    const targetPosition = (no_of_floors - floor - 1) * 160;
-    setStyle({
-      transform: `translateY(${targetPosition}px)`,
-      transitionDuration: "1s",
-    });
-
-    updateFloorno(floor);
-
-    currentFloor = floor;
-    setTimeout(() => {
-      opendoor();
+    if (!door) {
       setTimeout(() => {
-        closedoor();
-      }, 5000);
-    }, 1000);
+        setCurrentFloor(floor);
+        // Assuming each floor has a height of 100px
+        const targetPosition = (no_of_floors - floor - 1) * 150;
+        setStyle({
+          transform: `translateY(${targetPosition}px)`,
+          transitionDuration: "1s",
+        });
+
+        updateFloorno(floor);
+
+        currentFloor = floor;
+        setTimeout(() => {
+          opendoor();
+          setTimeout(() => {
+            closedoor();
+          }, 5000);
+        }, 1000);
+      }, 1000);
+    }
   }
   function opendoor() {
     setDoor(true);

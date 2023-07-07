@@ -3,6 +3,7 @@ import ElevatorPage from "./pages/ElevatorPage";
 import Log from "./pages/Log";
 import Home from "./pages/Home";
 import EditEmployee from "./pages/EditEmployee";
+import ElevatorLog from "./pages/ElevatorLog";
 function App() {
   return (
     <div>
@@ -12,6 +13,7 @@ function App() {
         <Route path="/elevator" element={<ElevatorPage />} />
         <Route path="/log" element={<Log />} />
         <Route path="/employee/edit/:empid" element={<EditEmployee />} />
+        <Route path="/Elevatorlog" element={<ElevatorLog />} />
       </Routes>
     </div>
   );

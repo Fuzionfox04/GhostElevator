@@ -1,7 +1,7 @@
 .main-grid {
   display: grid;
   gap: 0px;
-  height: 108vh;
+  height: 100vh;
   grid-template-columns: 3fr 1fr 2fr;
   border: 1px solid black;
   margin: 0px;
@@ -15,7 +15,6 @@
 .floors {
   display: grid;
   grid-template-columns: 100%;
-  gap: 2%;
   align-content: stretch;
   height: 100%;
 }
@@ -94,6 +93,7 @@ h3 {
 .Tooltip {
   cursor: default;
   position: relative;
+  text-align: center;
 }
 
 .Tooltip:hover {
@@ -108,6 +108,7 @@ h3 {
   text-align: center;
   color: #fff;
   top: -25px;
+  width: 100px;
   right: 50%;
   padding: 3px 8px;
   transform: translate(50%, -50%);

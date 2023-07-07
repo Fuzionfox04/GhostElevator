@@ -17,27 +17,36 @@ const Log = () => {
   }, []);
 
   return (
-    <table className="Employee">
-      <tr>
-        <th>id</th>
-        <th>Datetime</th>
-        <th>FloorNum</th>
-        <th>weight</th>
-      </tr>
-      {log.map((x) => {
-        return (
-          <tr key={x.id}>
-            <td>{x.id}</td>
-
-            <td>{x.elevatorLogAccess.dateTime}</td>
-
-            <td>{x.floorno}</td>
-
-            <td>{x.elevatorLogAccess.weight}</td>
+    <div class="box-wrap">
+      <div class="table">
+        <button class="btn-floor" onClick={() => navigate("/elevator")}>
+          elevator
+        </button>
+        <table>
+          <tr>
+            <th>id</th>
+            <th>Datetime</th>
+            <th>FloorNum</th>
+            <th>weight</th>
           </tr>
-        );
-      })}
-    </table>
+          {log.map((x) => {
+            return (
+              <tbody>
+                <tr key={x.id}>
+                  <td>{x.id}</td>
+
+                  <td>{x.elevatorLogAccess.dateTime}</td>
+
+                  <td>{x.floorno}</td>
+
+                  <td>{x.elevatorLogAccess.weight}</td>
+                </tr>
+              </tbody>
+            );
+          })}
+        </table>
+      </div>
+    </div>
   );
 };
 

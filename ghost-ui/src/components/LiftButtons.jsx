@@ -5,6 +5,7 @@ function LiftButtons({
   style,
   setStyle,
   setDoor,
+  door,
   currentFloor,
   setCurrentFloor,
   no_of_floors,
@@ -74,9 +75,10 @@ function LiftButtons({
   };
 
   function moveElevator(floor) {
-    setCurrentFloor(floor);
+    if(!door){setTimeout(() => {
+      setCurrentFloor(floor);
     // Assuming each floor has a height of 100px
-    const targetPosition = (no_of_floors - floor - 1) * 160;
+    const targetPosition = (no_of_floors - floor - 1) * 150;
     setStyle({
       transform: `translateY(${targetPosition}px)`,
       transitionDuration: "1s",
@@ -91,6 +93,8 @@ function LiftButtons({
         closedoor();
       }, 5000);
     }, 1000);
+    }, 1000);
+    }
   }
   function opendoor() {
     setDoor(true);

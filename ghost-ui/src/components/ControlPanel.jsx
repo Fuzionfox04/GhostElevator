@@ -6,6 +6,7 @@ function ControlPanel({
   style,
   setStyle,
   setDoor,
+  door,
   peopleCoordinates,
   updatePeopleCoordinates,
   currentFloor,
@@ -19,6 +20,7 @@ function ControlPanel({
         style={style}
         setStyle={setStyle}
         setDoor={setDoor}
+        door={door}
         no_of_floors={no_of_floors}
         currentFloor={currentFloor}
         setCurrentFloor={setCurrentFloor}

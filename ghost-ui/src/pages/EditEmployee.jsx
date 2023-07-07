@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import TextField from "@mui/material/TextField";
+import { Button } from "@mui/material";
 function EditEmployee() {
   const { empid } = useParams();
   console.log({ empid });
@@ -54,7 +55,7 @@ function EditEmployeeForm({ emp }) {
         onChange={(event) => setOfficeFloor(event.target.value)}
         // value={officefloor}
       />
-      <button
+      <Button
         variant="contained"
         onClick={() => {
           const updatedEmp = {
@@ -83,7 +84,7 @@ function EditEmployeeForm({ emp }) {
         }}
       >
         SAVE
-      </button>
+      </Button>
       <button class="btn-floor" onClick={() => navigate("/elevator")}>
         back
       </button>

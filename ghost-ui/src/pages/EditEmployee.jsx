@@ -9,7 +9,7 @@ function EditEmployee() {
 
   useEffect(() => {
     fetch(
-      `https://team1-ghostelevator.azurewebsites.net/api/Employee/${empid}`,
+      `https://team1-ghostelevator.azurewebsites.net/api/employee/${empid}`,
       {
         method: "GET",
       }
@@ -23,10 +23,6 @@ function EditEmployee() {
 
 function EditEmployeeForm({ emp }) {
   const [name, setName] = useState(emp.name);
-  const [floor_no, setFloor_no] = useState(emp.floor_no);
-
-  const [space_no, setSpace_no] = useState(emp.space_no);
-
   const [weight, setWeight] = useState(emp.weight);
   const [height, setHight] = useState(emp.weight);
   const [officefloor, setOfficeFloor] = useState(emp.officefloor);
@@ -38,47 +34,31 @@ function EditEmployeeForm({ emp }) {
         label="Name"
         variant="filled"
         onChange={(event) => setName(event.target.value)}
-        value={name}
-      />
-      <TextField
-        label="Floor no"
-        variant="filled"
-        onChange={(event) => setFloor_no(event.target.value)}
-        value={floor_no}
-      />
-      <TextField
-        label="Space no"
-        variant="filled"
-        onChange={(event) => setSpace_no(event.target.value)}
-        value={space_no}
+        // value={name}
       />
       <TextField
         label="Weight"
         variant="filled"
         onChange={(event) => setWeight(event.target.value)}
-        value={weight}
+        // value={weight}
       />
       <TextField
         label="Height"
         variant="filled"
         onChange={(event) => setHight(event.target.value)}
-        value={height}
+        // value={height}
       />
       <TextField
         label="Office floor"
         variant="filled"
         onChange={(event) => setOfficeFloor(event.target.value)}
-        value={officefloor}
+        // value={officefloor}
       />
       <button
         variant="contained"
         onClick={() => {
           const updatedEmp = {
             name: name,
-
-            floor_no: floor_no,
-
-            space_no: space_no,
 
             weight: weight,
 

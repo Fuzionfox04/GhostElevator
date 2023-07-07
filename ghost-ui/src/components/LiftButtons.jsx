@@ -27,6 +27,20 @@ function LiftButtons({
     }).then((res) => res.json());
   };
 
+  const logTotalWeight = (a, b) => {
+    const newMove = {
+      floorno: a,
+      weight: b,
+    };
+    fetch("https://team1-ghostelevator.azurewebsites.net/api/elevator", {
+      method: "POST",
+      body: JSON.stringify(newMove),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then((res) => res.json());
+  };
+
   const navigate = useNavigate();
   function removeDuplicates(arr) {
     return [...new Set(arr)];
@@ -77,6 +91,7 @@ function LiftButtons({
         totalWeight = totalWeight + person.weight;
       }
     });
+    logTotalWeight(currentFloor, totalWeight);
     if (totalWeight < weightLimit) {
       moveElevator(floor);
     } else {

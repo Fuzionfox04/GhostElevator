@@ -92,6 +92,12 @@ function LiftButtons({
   function moveElevator(floor) {
     if (!door) {
       setTimeout(() => {
+        peopleCoordinates.map((person) => {
+          if (person.space_no === 6) {
+            logData(person.id, currentFloor, floor);
+          }
+        });
+        setCurrentFloor(floor);
         setCurrentFloor(floor);
         // Assuming each floor has a height of 100px
         const targetPosition = (no_of_floors - floor - 1) * 150;

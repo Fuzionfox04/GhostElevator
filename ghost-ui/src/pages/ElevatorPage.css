@@ -8,10 +8,6 @@
   padding: 0;
 }
 
-.main-grid-item {
-  border: 1px solid blue;
-}
-
 .floors {
   display: grid;
   grid-template-columns: 100%;
@@ -27,6 +23,13 @@
   justify-content: stretch;
   grid-template-columns: repeat(6, 1fr);
   height: 136px;
+
+  overflow: hidden;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVsAF65xujmoUcQUZcoWSp0Zd5aANs4UYKqw&s");
+  object-fit: cover;
+  background-position: center;
+  background-size: 169px;
+  background-repeat: repeat-x;
 }
 
 .control-panel {
@@ -106,7 +109,7 @@ h3 {
   background-color: #000;
   border-radius: 4px;
   text-align: center;
-  color: #fff;
+  color: #a300a5;
   top: -25px;
   width: 100px;
   right: 50%;

@@ -5,16 +5,6 @@ import { useNavigate } from "react-router-dom";
 const Log = () => {
   const [log, setLog] = useState([]);
   const navigate = useNavigate();
-  useEffect(() => {
-    fetch("https://team1-ghostelevator.azurewebsites.net/api/lift", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        setLog(res);
-        console.log(res);
-      });
-  }, []);
 
   return (
     <div class="box-wrap">

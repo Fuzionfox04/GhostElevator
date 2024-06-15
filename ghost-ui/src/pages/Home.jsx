@@ -10,9 +10,6 @@ function Home() {
       <ol>
         <li></li>
       </ol>
-      <button class="btn-floor" onClick={() => navigate("/log")}>
-        log
-      </button>
       <button class="btn-floor" onClick={() => navigate("/elevator")}>
         elevator
       </button>

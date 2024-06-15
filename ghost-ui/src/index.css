@@ -24,7 +24,7 @@ code {
 .floor {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: end;
 }
 
 .button {
@@ -42,13 +42,14 @@ code {
   height: 120px;
   background-color: #4286f4;
   overflow: hidden;
-  background-image: url("https://th.bing.com/th/id/R.2433d641cd82327b987c1297b39acc69?rik=Pa6mjgZF7wDANA&riu=http%3a%2f%2fdailynewsdig.com%2fwp-content%2fuploads%2f2012%2f06%2fThe-Evil-Girl-From-The-Ring-Not-So-Scary-Now-1.jpg&ehk=SmiCLr8M4Z%2b595Nu%2fsbolk2d9OUXiTmI6z%2bxs9nsjvE%3d&risl=&pid=ImgRaw&r=0");
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0A_6Fg6puM0rB4rEvHzx-DFtS5bF4hd2jww&s");
   object-fit: cover;
-  background-position: top center;
-  background-size: 212px;
+  background-position: center;
+  background-size: 100px;
   background-repeat: no-repeat;
   border-radius: 5px;
   border: 5px solid black;
+  align-items: end;
 }
 
 .door {
@@ -56,6 +57,21 @@ code {
   position: absolute;
   width: 80px;
   height: 120px;
-  background-color: silver;
+
+  background-image: url("https://4.imimg.com/data4/FF/MU/MY-32678765/single-elevator-door-1000x1000.jpg");
+  object-fit: cover;
+  background-position: center;
+  background-size: 179px;
+  background-repeat: no-repeat;
+
   z-index: 1000;
+}
+
+.elevator-shaft {
+  overflow: hidden;
+  background-image: url("https://media.freestocktextures.com/cache/75/f7/75f7193c337bd5464e116b3602e054ba.jpg");
+  object-fit: cover;
+  background-position: center;
+  background-size: 1500px;
+  background-repeat: no-repeat;
 }

@@ -7,19 +7,7 @@ function EditEmployee() {
   const { empid } = useParams();
   console.log({ empid });
   const [emp, setEmp] = useState(null);
-
-  useEffect(() => {
-    fetch(
-      `https://team1-ghostelevator.azurewebsites.net/api/employee/${empid}`,
-      {
-        method: "GET",
-      }
-    )
-      .then((res) => res.json())
-      .then((res) => setEmp(res));
-  }, []);
-  console.log(emp);
-  return emp ? <EditEmployeeForm emp={emp} /> : "Loading...";
+  return <EditEmployeeForm emp={emp} />;
 }
 
 function EditEmployeeForm({ emp }) {
@@ -68,19 +56,6 @@ function EditEmployeeForm({ emp }) {
             officefloor: officefloor,
             id: emp.id,
           };
-
-          fetch(
-            `https://team1-ghostelevator.azurewebsites.net/api/Employee/${emp.id}`,
-            {
-              method: "PUT",
-              body: JSON.stringify(updatedEmp),
-              headers: {
-                "Content-Type": "application/json",
-              },
-            }
-          )
-            .then((res) => res.json())
-            .then(() => navigate("/elevator"));
         }}
       >
         SAVE

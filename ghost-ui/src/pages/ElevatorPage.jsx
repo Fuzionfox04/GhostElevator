@@ -14,19 +14,53 @@ function ElevatorPage() {
   const [door, setDoor] = useState(false);
   const [fix, setFix] = useState(false);
 
-  const [peopleCoordinates, setPeopleCoordinates] = useState([]);
-
-  useEffect(() => {
-    fetch("https://team1-ghostelevator.azurewebsites.net/api/employee", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .then((emp) => {
-        setPeopleCoordinates(emp);
-        setFix(!fix);
-      });
-  }, []);
-  console.log(peopleCoordinates);
+  const [peopleCoordinates, setPeopleCoordinates] = useState([
+    {
+      name: "🧍‍♂️",
+      floor_no: 0,
+      space_no: 0,
+      weight: 50,
+      height: 100,
+      officefloor: 2,
+      id: 1,
+    },
+    {
+      name: "🧍‍♀️",
+      floor_no: 0,
+      space_no: 1,
+      weight: 50,
+      height: 110,
+      officefloor: 3,
+      id: 2,
+    },
+    {
+      name: "🕴",
+      floor_no: 0,
+      space_no: 2,
+      weight: 50,
+      height: 120,
+      officefloor: 4,
+      id: 3,
+    },
+    {
+      name: "⛹️‍♀️",
+      floor_no: 0,
+      space_no: 3,
+      weight: 100,
+      height: 130,
+      officefloor: 1,
+      id: 4,
+    },
+    {
+      name: "💃",
+      floor_no: 0,
+      space_no: 4,
+      weight: 101,
+      height: 150,
+      officefloor: 3,
+      id: 5,
+    },
+  ]);
 
   useEffect(() => {
     setPeopleCoordinates(

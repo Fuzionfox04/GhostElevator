@@ -12,35 +12,6 @@ function LiftButtons({
   updateFloorno,
   peopleCoordinates,
 }) {
-  const logData = (a, b, c) => {
-    const newMove = {
-      empId: a,
-      start: b,
-      end: c,
-    };
-    fetch("https://team1-ghostelevator.azurewebsites.net/api/lift", {
-      method: "POST",
-      body: JSON.stringify(newMove),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((res) => res.json());
-  };
-
-  const logTotalWeight = (a, b) => {
-    const newMove = {
-      floorno: a,
-      weight: b,
-    };
-    fetch("https://team1-ghostelevator.azurewebsites.net/api/elevator", {
-      method: "POST",
-      body: JSON.stringify(newMove),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((res) => res.json());
-  };
-
   const navigate = useNavigate();
   function removeDuplicates(arr) {
     return [...new Set(arr)];
@@ -48,14 +19,19 @@ function LiftButtons({
   const [cardAccess, setCardAccess] = useState([]);
   const [toggleCardAccess, setToggleCardAccess] = useState(false);
   const [toggleGhost, setToggleGhost] = useState(false);
+  const [ghostInterval, setGhostInterval] = useState(null);
 
   const Ghost = () => {
-    for (let i = 0; i < 200; i++) {
-      let k = i;
-      setTimeout(function () {
-        moveElevator(Math.round(Math.random() * 4));
-      }, 700 * (k + 1));
+    if (ghostInterval != null) {
+      clearInterval(ghostInterval);
+      setGhostInterval(null);
     }
+
+    setGhostInterval(
+      setInterval(function () {
+        moveElevator(Math.round(Math.random() * 4));
+      }, 700)
+    );
   };
 
   const getCardAccess = () => {
@@ -91,7 +67,6 @@ function LiftButtons({
         totalWeight = totalWeight + person.weight;
       }
     });
-    logTotalWeight(currentFloor, totalWeight);
     if (totalWeight < weightLimit) {
       moveElevator(floor);
     } else {
@@ -107,15 +82,10 @@ function LiftButtons({
   function moveElevator(floor) {
     if (!door) {
       setTimeout(() => {
-        peopleCoordinates.map((person) => {
-          if (person.space_no === 6) {
-            logData(person.id, currentFloor, floor);
-          }
-        });
         setCurrentFloor(floor);
         setCurrentFloor(floor);
         // Assuming each floor has a height of 100px
-        const targetPosition = (no_of_floors - floor - 1) * 150;
+        const targetPosition = (no_of_floors - floor - 1) * 142;
         setStyle({
           transform: `translateY(${targetPosition}px)`,
           transitionDuration: "1s",
@@ -215,25 +185,6 @@ function LiftButtons({
           onClick={toggleCardAccess === true ? autoMove : closedoor}
         >
           close
-        </button>
-        <button class="btn-floor" onClick={() => navigate("/log")}>
-          log
-        </button>
-        <button
-          class="btn-floor"
-          style={
-            toggleCardAccess === true ? { background: "rgb(0, 204, 31)" } : {}
-          }
-          onClick={() => setToggleCardAccess(!toggleCardAccess)}
-        >
-          auto id
-        </button>
-        <button
-          class="btn-floor"
-          style={toggleGhost === true ? { background: "#c90000" } : {}}
-          onClick={() => setToggleGhost(!toggleGhost)}
-        >
-          Ghost
         </button>
       </div>
     </div>
